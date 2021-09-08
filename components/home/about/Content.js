@@ -1,9 +1,7 @@
 import React from "react";
-import Link from "next/link";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { setCookie } from "nookies";
 import { useRouter } from "next/router";
 
 function Content() {
@@ -12,8 +10,7 @@ function Content() {
     <>
       <Container fluid className="content">
         <Row className="content_row">
-          <Col className="content_col content_col-1 ">
-            <Link href="/establishments#/hotels">
+          <Col className="content_col content_col-1 ">   
               <a>
                 <div
                   onClick={() =>
@@ -26,10 +23,8 @@ function Content() {
                   <h3>Hotels</h3>
                 </div>
               </a>
-            </Link>
           </Col>
           <Col className="content_col content_col-2 ">
-            <Link href="/establishments">
               <a>
                 <div
                   onClick={() =>
@@ -42,7 +37,6 @@ function Content() {
                   <h3>Bed and Breakfast</h3>
                 </div>
               </a>
-            </Link>
           </Col>
           <Col className="content_col content_col-3">
             <a>

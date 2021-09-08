@@ -27,7 +27,7 @@ function HomeDesktop(establishments) {
       <Link href="/establishments">
         <button className="cta">Explore</button>
       </Link>
-      <Content />
+      <Category />
       <HappyCustomer />
       <style global jsx>
         {`

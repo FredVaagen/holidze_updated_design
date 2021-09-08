@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useRouter } from "next/router";
 
-function Content() {
+function Category() {
   const router = useRouter();
   return (
     <>
@@ -134,4 +134,4 @@ function Content() {
   );
 }
 
-export default Content;
+export default Category;

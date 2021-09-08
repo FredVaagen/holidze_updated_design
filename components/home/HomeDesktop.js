@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Container from "react-bootstrap/Container";
 import SearchBar from "../establishments/search/SearchBar";
-import Content from "./about/Content";
+import Category from "./about/Category";
 import HappyCustomer from "./about/HappyCustomer";
 
 function HomeDesktop(establishments) {

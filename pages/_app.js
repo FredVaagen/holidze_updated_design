@@ -9,6 +9,8 @@ import AppContext from "../context/AppContext";
 import { BASE_URL } from "../constants/api";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+
+
 //Loading progress bar styling ->
 const progress = new ProgressBar({
   size: 1,

@@ -32,4 +32,5 @@ export async function getStaticProps() {
     //Page revalidates (Updates) each second to make it more dynamic.
     revalidate: 600,
   };
+
 }

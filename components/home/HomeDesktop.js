@@ -2,10 +2,34 @@ import React from "react";
 import Link from "next/link";
 import Container from "react-bootstrap/Container";
 import SearchBar from "../establishments/search/SearchBar";
-import Category from "./about/Category";
-import HappyCustomer from "./about/HappyCustomer";
+import Category from "./components/Category";
+import HappyCustomer from "./components/HappyCustomer";
+import axios from "axios";
 
 function HomeDesktop(establishments) {
+  async function test() {
+    const res = await axios({
+      method: "POST",
+      headers: {
+        grant_type: "password",
+        username: "demo.hr@kravia.net",
+        password: "Demo123!",
+        audience: "https://api-staging.kraviainkasso.no",
+        scope: "openid email profile read:findata create:findata",
+        client_id: "EzvgVwdLG52qO3o17fV01nRjwHQo9byG",
+        client_secret:
+          "iBWY2g_e7ESDYtCm9ifz4bWZ40nIl8Lbhi3tii0X5hO1gC6zCkqP8_h8ob4VxOlp",
+      },
+      url: `https://kravia.eu.auth0.com/oauth/token`,
+    });
+    //If ok -> reload page
+    if (res) {
+      console.log("Success", res);
+    } else console.log("Failure");
+  }
+
+  test();
+
   return (
     <>
       <Container fluid className="background-image">
@@ -13,7 +37,7 @@ function HomeDesktop(establishments) {
           <Link href="/establishments">
             <a>
               <h1>
-                Bergen - 
+                Bergen -
                 <span className="h1_secondary"> where memories are made</span>
               </h1>
               <h2>
@@ -147,7 +171,8 @@ function HomeDesktop(establishments) {
             transform: scale(1.01);
           }
           @media only screen and (max-width: 990px) {
-            h1,  .h1_secondary  {
+            h1,
+            .h1_secondary {
               font-size: 30px;
               margin-top: -10rem;
             }

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { BASE_URL } from "../../constants/api";
-import SpecificEstablishmentCard from "../../components/specific-establishment/Special";
+import EstablishmentCard from "../../components/establishment/Establishment";
 
 export default function Establishment({ establishment, images }) {
   return (
@@ -8,7 +8,7 @@ export default function Establishment({ establishment, images }) {
       <Head>
         <title>Holidaze - {establishment.name}</title>
       </Head>
-      <SpecificEstablishmentCard {...{ establishment, images }} />
+      <EstablishmentCard {...{ establishment, images }} />
     </>
   );
 }

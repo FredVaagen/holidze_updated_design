@@ -34,7 +34,7 @@ function Facilities(props) {
   function Accessible() {
     if (accesible) {
       return (
-        <div className="mr-1">
+        <div className="facilities-container">
           <AccessibleIcon /> Accsessible
         </div>
       );
@@ -44,7 +44,7 @@ function Facilities(props) {
   function WorkStation() {
     if (workstation) {
       return (
-        <div className="mr-1">
+        <div className="facilities-container">
           <ComputerIcon /> Workstation
         </div>
       );
@@ -54,7 +54,7 @@ function Facilities(props) {
   function SmokeFree() {
     if (smokefree) {
       return (
-        <div className="mr-1">
+        <div className="facilities-container">
           <SmokeFreeIcon /> Smokefree
         </div>
       );
@@ -73,7 +73,7 @@ function Facilities(props) {
   function AirportShuttle() {
     if (airportshuttle) {
       return (
-        <div className="mr-1">
+        <div className="facilities-container">
           <AirportShuttleIcon /> Airport Shuttle
         </div>
       );
@@ -83,7 +83,7 @@ function Facilities(props) {
   function Gym() {
     if (gym) {
       return (
-        <div className="mr-1">
+        <div className="facilities-container">
           <FitnessCenterIcon /> Gym
         </div>
       );
@@ -93,7 +93,7 @@ function Facilities(props) {
   function Wifi() {
     if (wifi) {
       return (
-        <div className="mr-1">
+        <div className="facilities-container">
           <WifiIcon /> Wifi
         </div>
       );
@@ -103,7 +103,7 @@ function Facilities(props) {
   function Tv() {
     if (tv) {
       return (
-        <div className="mr-1">
+        <div className="facilities-container">
           <TvIcon /> TV
         </div>
       );
@@ -112,7 +112,7 @@ function Facilities(props) {
   function HotelBar() {
     if (hotelbar) {
       return (
-        <div className="mr-1">
+        <div className="facilities-container">
           <LocalBarIcon /> Bar
         </div>
       );
@@ -122,7 +122,7 @@ function Facilities(props) {
   function Pool() {
     if (pool) {
       return (
-        <div className="mr-1">
+        <div className="facilities-container">
           <PoolIcon /> Pool
         </div>
       );
@@ -132,7 +132,7 @@ function Facilities(props) {
   function Parking() {
     if (parking) {
       return (
-        <div className="mr-1">
+        <div className="facilities-container">
           <LocalParkingIcon /> Parking
         </div>
       );
@@ -141,7 +141,7 @@ function Facilities(props) {
   function Kitchen() {
     if (kitchen) {
       return (
-        <div className="mr-1">
+        <div className="facilities-container">
           <KitchenIcon /> Kitchen
         </div>
       );
@@ -168,28 +168,38 @@ function Facilities(props) {
 
       <style global jsx>
         {`
-          .facilities {
-            height: auto;
-            font-size: 11px;
-            font-weight: 300;
-            margin-bottom: 1rem;
-          }
-
-          .facilities .row {
-            display: flex;
-          }
-
-          .facilities svg {
-            font-size: 14px;
-            opacity: 0.7;
-            margin-right: 3px;
-            margin-left: 7px;
-          }
-          @media only screen and (max-width: 400px) {
-            .facilities .row {
-              display: block;
+             .facilities {
+              display: flex;
+              width: 100%;
+              height: 220px;
+              padding-left: 1rem;
             }
-          }
+  
+            .facilities div {
+              margin: 1rem 1rem 1rem 0;
+              font-size: 16px;
+              text-align: left;
+              
+            }
+
+          
+            .facilities svg {
+              font-size: 30px;
+              opacity: 0.7;
+           
+            }
+
+            @media only screen and (max-width: 400px) {
+              .facilities div {
+                padding: 0;
+                font-size: 12px;
+                text-align: left;
+                display: block;
+                margin: 0 auto;
+              }
+
+            }
+     
         `}
       </style>
     </Container>

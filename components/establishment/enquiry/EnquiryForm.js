@@ -37,6 +37,7 @@ function Enquiry(establishment) {
 
   return (
     <Container>
+          <h3 className="mt-3 mb-3">Book now!</h3>
       {showModal ? (
         <Form className="form" onSubmit={handleSubmit(onSubmit)}>
           <Row>

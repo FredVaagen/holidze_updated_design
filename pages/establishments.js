@@ -1,11 +1,6 @@
 import Head from "next/head";
 import { BASE_URL } from "../constants/api";
-import EstablishmentsDesktop from "../components/establishments/EstablishmentsDesktop";
-import MediaQuery from "../components/utility/MediaQuery";
-import EstablishmentsMobile from "../components/establishments/EstablishmentsMobile";
-
-//MediaQuery component to measure width of page ->
-<MediaQuery />;
+import Establishments from "../components/establishments/Establishments";
 
 export default function EstablishmentsPage({
   //Page props
@@ -17,16 +12,12 @@ export default function EstablishmentsPage({
   sortByGuesthouse,
   sortByBedAndBreakfast,
 }) {
-  //Sets the mediaquery breakpoint to 991px ->
-  const isBreakpoint = MediaQuery(991);
-
   return (
     <>
       <Head>
         <title>Holidaze - Establishments</title>
-      </Head>
-      {isBreakpoint ? (
-        <EstablishmentsDesktop
+      </Head> 
+        <Establishments
           {...{
             establishments,
             nameDesc,
@@ -37,19 +28,6 @@ export default function EstablishmentsPage({
             sortByBedAndBreakfast,
           }}
         />
-      ) : (
-        <EstablishmentsDesktop
-          {...{
-            establishments,
-            nameDesc,
-            priceAsc,
-            priceDesc,
-            sortByHotel,
-            sortByGuesthouse,
-            sortByBedAndBreakfast,
-          }}
-        />
-      )}
     </>
   );
 }

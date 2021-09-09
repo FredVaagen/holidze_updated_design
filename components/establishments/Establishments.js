@@ -8,11 +8,11 @@ import Carousel from "react-bootstrap/Carousel";
 import Button from "@material-ui/core/Button";
 import Map from "./maps/Map";
 import AppContext from "../../context/AppContext";
-import Facilities from "../specific-establishment/facilities/Facilities";
+import Facilities from "../establishment/facilities/Facilities";
 import RoomIcon from "@material-ui/icons/Room";
 import { useRouter } from "next/router";
 
-function EstablishmentsDesktop({
+function Establishments({
   //Props from getServerSideProps
   establishments,
   sortByHotel,
@@ -157,7 +157,7 @@ function EstablishmentsDesktop({
                 </Carousel>
               </Col>
               <Col s={12} md={6} lg={4} className="details">
-                <h3>{establishment.name}</h3>
+                <h3 className="establishment_name">{establishment.name}</h3>
 
                 <Facilities {...establishment} />
                 <p className="address">
@@ -328,13 +328,40 @@ function EstablishmentsDesktop({
             background: white;
           }
 
-  
+          @media only screen and (max-width: 768px) {
+            .details h3 {
+              margin-bottom: .5rem;
+            }
 
-      
+            .facilities {
+              margin-left: -.4rem;
+            }
+
+          }
+
+          @media only screen and (max-width: 600px) {
+            .sort {
+              margin: 0 auto;
+            } 
+
+            .sort_button {
+              padding: .4rem .8rem;
+              font-size: .8rem;
+              margin-right: 1rem;
+              margin-top: 20px;
+              transition: .3s;
+            }
+
+            .establishment-container {
+              padding-right: 15px;
+              padding-left: 5px;
+            }
+            
+          }
         `}
       </style>
     </>
   );
 }
 
-export default EstablishmentsDesktop;
+export default Establishments;

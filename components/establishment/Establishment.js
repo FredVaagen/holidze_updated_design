@@ -9,7 +9,7 @@ import Col from "react-bootstrap/Col";
 import Enquiry from "./enquiry/EnquiryForm";
 import RoomIcon from "@material-ui/icons/Room";
 
-function SpecificEstablishmentCard({ establishment, images }) {
+function EstablishmentCard({ establishment, images }) {
   //set modal show state to false ->
   const [show, setShow] = useState(false);
   //When you click close on the modal ->
@@ -47,7 +47,8 @@ function SpecificEstablishmentCard({ establishment, images }) {
             <div className="map">
               <Map {...establishment} />
               <p>
-                <RoomIcon />
+                <RoomIcon className="description_address_pin" />{" "}
+                {establishment.address}
               </p>
             </div>
           </div>
@@ -171,24 +172,15 @@ function SpecificEstablishmentCard({ establishment, images }) {
             box-shadow: 0 0.5rem 1rem rgb(20 20 20 / 5%);
           }
 
-          .facilities {
-            display: block;
-            width: 100%;
-            height: 220px;
-
-            border-bottom: 1px solid #eee;
-          }
-
-          .facilities svg {
-            font-size: 34px;
-            margin-left: 3rem;
-          }
-
           .desc-map {
             display: flex;
             margin-bottom: 2rem;
             border-bottom: 1px solid #eee;
             font-weight: 300;
+          }
+
+          .description_address_pin {
+            color: #d2122e;
           }
 
           .div1 {
@@ -228,7 +220,6 @@ function SpecificEstablishmentCard({ establishment, images }) {
 
           .establishment-gallery_box img {
             width: 100%;
-
             max-height: 400px;
           }
 
@@ -291,9 +282,6 @@ function SpecificEstablishmentCard({ establishment, images }) {
             height: 200px;
           }
 
-          .facilities {
-            font-size: 22px;
-          }
           .div5 {
             grid-area: 3 / 5 / 5 / 7;
             margin-right: 3rem;
@@ -310,7 +298,6 @@ function SpecificEstablishmentCard({ establishment, images }) {
 
           .image-price-container {
             display: flex;
-
             justify-content: space-between;
           }
 
@@ -427,9 +414,15 @@ function SpecificEstablishmentCard({ establishment, images }) {
           }
 
           @media only screen and (max-width: 1200px) {
+            .parent {
+              display: flex;
+              flex-direction: column;
+            }
+
             .desc-map {
               display: block;
             }
+
             .div4 .description {
               width: 100%;
               margin: 0;
@@ -448,24 +441,9 @@ function SpecificEstablishmentCard({ establishment, images }) {
             .div5 {
               margin: 1.5rem;
             }
-
-            .facilities {
-              font-size: 16px;
-              font-weight: 300;
-            }
-
-            .facilities svg {
-              font-size: 22px;
-              margin: 0;
-              margin: 10px;
-            }
           }
-          @media only screen and (max-width: 1000px) {
-            .parent {
-              display: flex;
-              flex-direction: column;
-            }
 
+          @media only screen and (max-width: 1000px) {
             .div5 {
               margin: 1.5rem;
             }
@@ -476,9 +454,6 @@ function SpecificEstablishmentCard({ establishment, images }) {
               display: block;
               height: auto;
               margin-left: -1rem;
-       
-           
-           
             }
 
             .div6 {
@@ -487,14 +462,14 @@ function SpecificEstablishmentCard({ establishment, images }) {
               margin-left: 2rem;
             }
 
-            .div6 .reviews .reviews_box-1, .reviews_box-2 {
+            .div6 .reviews .reviews_box-1,
+            .reviews_box-2 {
               width: 100%;
               margin-bottom: 2rem;
             }
 
             .div6 .reviews .reviews_box-2 {
               margin-left: 0;
-           
             }
           }
 
@@ -544,7 +519,7 @@ function SpecificEstablishmentCard({ establishment, images }) {
 
           @media only screen and (max-width: 400px) {
             .div5 {
-              margin-top: 12rem;
+              margin-top: 9rem;
             }
 
             .room .image-price-container img {
@@ -555,6 +530,7 @@ function SpecificEstablishmentCard({ establishment, images }) {
           }
         `}
       </style>
+
       <Button
         className="book-now mt-3"
         variant="contained"
@@ -562,23 +538,105 @@ function SpecificEstablishmentCard({ establishment, images }) {
         book now
       </Button>
 
-      <Modal show={show} size="lg" onHide={handleClose} keyboard={false}>
+      <Modal show={show} size="xl" onHide={handleClose} keyboard={false}>
         <Modal.Body className="enquiry-modal">
-          <Container>
-            <Row>
+          <Container className="modal-container">
+            <Row className="modal-row">
               <Col className="modal-left-col" lg={5}>
-                <p>{establishment.address}</p>
+                <div className="establishment_details">
+                  <ul>
+                    <li>
+                      <div><RoomIcon /> <span>Address</span></div>
+                     {establishment.address}
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <div><RoomIcon /> <span>Phone</span></div>
+                     +47 123 12 123
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <div><RoomIcon /> <span>Email</span></div>
+                     {establishment.name}@support.com
+                    </li>
+                  </ul>
+                </div>
               </Col>
               <Col className="modal-right-col">
-                <Modal.Header closeButton></Modal.Header>
+                <Modal.Header className="mb-1" closeButton></Modal.Header>
+
                 <Enquiry {...establishment} />
               </Col>
             </Row>
           </Container>
         </Modal.Body>
       </Modal>
+      <style global jsx>{`
+        .modal-container,
+        modal-row {
+          padding: 0;
+          margin: 0;
+        }
+
+        .modal-header {
+          border: none;
+        }
+
+        .modal-header button {
+          font-size: 44px;
+          color: #ff1447;
+        }
+
+        .modal-header button:hover {
+          color: #ff1447;
+        }
+        .enquiry-modal .modal-left-col {
+          background: #eee;
+          padding: 0;
+          margin: 0;
+          margin-top: -15px;
+          display: flex;
+          justify-content: center;
+        }
+
+        .enquiry-modal .modal-left-col .establishment_details {
+          padding: 12rem 8rem 8rem 4rem;
+        }
+
+        .modal-right-col {
+          margin-top: -15px;
+        }
+
+        .establishment_details ul {
+          
+          list-style-type: none;
+          font-weight: 300;
+        }
+
+        .establishment_details ul li div {
+          margin-left: -1.7rem;
+         
+        }
+        .establishment_details ul li div span {
+          font-weight: 500;
+          text-transform: uppercase;
+        }
+
+
+        .establishment_details ul li div svg {
+          color: red;
+        }
+
+        @media only screen and (max-width: 900px) {
+          .enquiry-modal .modal-left-col {
+            display: none;
+          }
+        }
+      `}</style>
     </>
   );
 }
 
-export default SpecificEstablishmentCard;
+export default EstablishmentCard;

@@ -8,7 +8,6 @@ import Carousel from "react-bootstrap/Carousel";
 import Button from "@material-ui/core/Button";
 import Map from "./maps/Map";
 import AppContext from "../../context/AppContext";
-import Facilities from "../establishment/facilities/Facilities";
 import RoomIcon from "@material-ui/icons/Room";
 import { useRouter } from "next/router";
 
@@ -159,7 +158,6 @@ function Establishments({
               <Col s={12} md={6} lg={4} className="details">
                 <h3 className="establishment_name">{establishment.name}</h3>
 
-                <Facilities {...establishment} />
                 <p className="address">
                   {" "}
                   <RoomIcon className="details_mapPin" />{" "}
@@ -195,6 +193,14 @@ function Establishments({
             z-index: 3;
             margin-top: -5rem;
           
+          }
+
+          .facilities-container {
+            font-size: 10px !important;
+          }
+
+          .facilities svg {
+            font-size: 10px;
           }
 
           .main {
@@ -335,6 +341,7 @@ function Establishments({
 
             .facilities {
               margin-left: -.4rem;
+          
             }
 
           }

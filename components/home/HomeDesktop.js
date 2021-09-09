@@ -10,25 +10,20 @@ function HomeDesktop(establishments) {
   async function test() {
     const res = await axios({
       method: "POST",
-      headers: {
-        grant_type: "password",
-        username: "demo.hr@kravia.net",
-        password: "Demo123!",
-        audience: "https://api-staging.kraviainkasso.no",
-        scope: "openid email profile read:findata create:findata",
-        client_id: "EzvgVwdLG52qO3o17fV01nRjwHQo9byG",
-        client_secret:
-          "iBWY2g_e7ESDYtCm9ifz4bWZ40nIl8Lbhi3tii0X5hO1gC6zCkqP8_h8ob4VxOlp",
-      },
-      url: `https://kravia.eu.auth0.com/oauth/token`,
+      url: 'https://kravia.eu.auth0.com/oauth/token',
+      headers: { 'content-type': 'application/x-www-form-urlencoded' },
+      form:
+       { client_id: 'EzvgVwdLG52qO3o17fV01nRjwHQo9byG',
+         client_secret: 'iBWY2g_e7ESDYtCm9ifz4bWZ40nIl8Lbhi3tii0X5hO1gC6zCkqP8_h8ob4VxOlp',
+         audience: 'https://api-staging.kraviainkasso.no',
+         grant_type: 'client_credentials' }
     });
     //If ok -> reload page
     if (res) {
       console.log("Success", res);
-    } else console.log("Failure");
+    }
   }
-
-  test();
+  test() 
 
   return (
     <>

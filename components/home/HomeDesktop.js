@@ -4,27 +4,8 @@ import Container from "react-bootstrap/Container";
 import SearchBar from "../establishments/search/SearchBar";
 import Category from "./components/Category";
 import HappyCustomer from "./components/HappyCustomer";
-import axios from "axios";
 
 function HomeDesktop(establishments) {
-  async function test() {
-    const res = await axios({
-      method: "POST",
-      url: 'https://kravia.eu.auth0.com/oauth/token',
-      headers: { 'content-type': 'application/x-www-form-urlencoded' },
-      form:
-       { client_id: 'EzvgVwdLG52qO3o17fV01nRjwHQo9byG',
-         client_secret: 'iBWY2g_e7ESDYtCm9ifz4bWZ40nIl8Lbhi3tii0X5hO1gC6zCkqP8_h8ob4VxOlp',
-         audience: 'https://api-staging.kraviainkasso.no',
-         grant_type: 'client_credentials' }
-    });
-    //If ok -> reload page
-    if (res) {
-      console.log("Success", res);
-    }
-  }
-  test() 
-
   return (
     <>
       <Container fluid className="background-image">
